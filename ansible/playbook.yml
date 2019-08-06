@@ -50,6 +50,12 @@
         virtualenv: /home/kevin/LibAppServ/myenv
         state: latest
 
+    - name: Pip install psycopg2-binary
+      pip: 
+        name: psycopg2-binary 
+        virtualenv: /home/kevin/LibAppServ/myenv
+        state: latest
+
     - name: Pip install whitenoise
       pip: name=whitenoise virtualenv=/home/kevin/LibAppServ/myenv
     
