@@ -1,7 +1,7 @@
 [run]
 branch = True 
 omit = /home/kevin/Documents/LibraryApp/LibAppDjango/myenv/*
-       /home/kevin/Documents/LibraryApp/LibAppDjango/feedback/apps.py
+       /home/kevin/Documents/LibraryApp/LibAppDjango/feedback/*
        
 [report]
 # a target coverage percentage
