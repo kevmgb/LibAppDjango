@@ -96,7 +96,7 @@
 
     - name: Create Symbolic link
       file:
-        src: confdns
+        src: /etc/nginx/sites-available/confdns
         dest: /etc/nginx/sites-enabled/default
         state: link
     
