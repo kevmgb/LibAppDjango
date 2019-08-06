@@ -20,12 +20,16 @@
 
     - name: Copy .env file
       copy:
-        src: .env
+        src: /home/kevin/Documents/LibraryApp/LibAppDjango/.env
         dest: /home/kevin/LibAppServ/
+        remote_src: yes
     
     - name: Create Database
       become_user: postgres
       postgresql_db: name={{ POSTGRES_DB }}
+      owner: "root"
+      group: "root"
+      mode: 0755
 
     - name: Create Database user
       become_user: postgres
