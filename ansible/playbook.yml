@@ -25,12 +25,10 @@
         remote_src: yes
     
     - name: Create Database
-      become_user: postgres
+      become: true
+      become_user: root
       postgresql_db: name={{ POSTGRES_DB }}
-      owner: "root"
-      group: "root"
-      mode: 0755
-
+      
     - name: Create Database user
       become_user: postgres
       postgresql_user: db={{ POSTGRES_DB }} name={{ POSTGRES_USER }} password={{ POSTGRES_PASSWORD }}
