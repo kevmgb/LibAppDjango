@@ -91,7 +91,7 @@
 
     - name: Copy nginx conf file
       copy:
-        src: /home/kevin/Documents/LibraryApp/LibAppDjango/confdns
+        src: confdns
         dest: /etc/nginx/sites-available/
 
     - name: Create Symbolic link
