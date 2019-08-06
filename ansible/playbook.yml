@@ -46,9 +46,8 @@
       
     - name: Deploy from pip registry to virtualenv
       pip: 
-        name: LibraryApp
+        name: LibraryApp==3.0.1
         virtualenv: /home/kevin/LibAppServ/myenv
-        state: latest
     
     - name: Pip install gunicorn
       pip: name=gunicorn virtualenv=/home/kevin/LibAppServ/myenv
