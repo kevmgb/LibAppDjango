@@ -22,7 +22,6 @@
       copy:
         src: .env
         dest: /home/kevin/LibAppServ/
-        remote_src: yes
     
     - name: Create Database
       become: true
