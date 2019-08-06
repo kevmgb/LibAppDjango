@@ -33,12 +33,13 @@
     
     
     - name: Install virtualenv
-      pip: name=virtualenv executable=pip3
+      pip: name=virtualenv executable=pip
       
     - name: Deploy from pip registry to virtualenv
       pip: 
-        name: LibraryApp==2.0.1
+        name: LibraryApp
         virtualenv: /home/kevin/LibAppServ/myenv
+        state: latest
     
     - name: Pip install gunicorn
       pip: name=gunicorn virtualenv=/home/kevin/LibAppServ/myenv
@@ -72,7 +73,7 @@
 
     - name: Create Symbolic link
       file:
-        src: /etc/nginx/sites-available/confdns
+        src: confdns
         dest: /etc/nginx/sites-enabled/default
         state: link
     
