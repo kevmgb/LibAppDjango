@@ -70,7 +70,7 @@
     
     - name: Create Database
       become: true
-      become_user: root
+      become_user: postgres
       postgresql_db: name={{ POSTGRES_DB }}
       
     - name: Create Database user

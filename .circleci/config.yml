@@ -9,7 +9,7 @@ jobs:
       
       - image: circleci/postgres:9.5-alpine
         environment:
-          POSTGRES_USER: libdb
+          POSTGRES_USER: postgres
           POSTGRES_DB: libdb
           POSTGRES_PASSWORD: libdb
 
