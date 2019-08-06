@@ -19,6 +19,15 @@
           - python-setuptools
         state: latest
     
+    - name: install prerequisites
+      sudo: true
+      apt: name={{ item }} state=latest
+      with_items:
+        - libpq-dev
+        - python-psycopg2
+      tags:
+       - packages
+
     - name: ensure nginx is at the latest version
       apt: name=nginx state=latest
     - name: start nginx
