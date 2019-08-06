@@ -22,10 +22,6 @@
       copy:
         src: .env
         dest: /home/kevin/LibAppServ/
-        remote_src: yes
-        owner: "root"
-        group: "root"
-        mode: 0755
     
     - name: Create Database
       become_user: postgres
