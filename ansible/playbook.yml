@@ -1,7 +1,7 @@
 ---
 
 - name: Deploy to server
-  hosts: all
+  hosts: web-server
   vars_files:
     - vars.yml
   become: yes
