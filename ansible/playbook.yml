@@ -11,6 +11,14 @@
     - name: Install System Packages
       apt: name={{ system_packages }} update-cache=yes
 
+    - name: Install dependencies
+      apt:
+        name:
+          - python3
+          - python3-pip
+          - python3-setuptools
+        state: latest
+    
     - name: ensure nginx is at the latest version
       apt: name=nginx state=latest
     - name: start nginx
@@ -23,11 +31,7 @@
         src: .env
         dest: /home/kevin/LibAppServ/
     
-    - name: fix pkg
-      pip: 
-        name: setuptools 
-        state: latest
-
+    
     - name: Install virtualenv
       pip: name=virtualenv executable=pip3
       
