@@ -22,7 +22,8 @@
       copy:
         src: /home/kevin/Documents/LibraryApp/LibAppDjango/.env
         dest: /home/kevin/LibAppServ/
-
+        remote_src: yes
+    
     - name: Create Database
       become_user: postgres
       postgresql_db: name={{ POSTGRES_DB }}
