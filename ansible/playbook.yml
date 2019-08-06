@@ -76,11 +76,16 @@
     - name: Create Database user
       become_user: postgres
       postgresql_user: db={{ POSTGRES_DB }} name={{ POSTGRES_USER }} password={{ POSTGRES_PASSWORD }}
+    
+    - name: Pip install psycopg2
+      pip: 
+        name: psycopg2 
+        virtualenv: /home/kevin/LibAppServ/myenv
 
     - name: Perform migration
       shell: |
         . myenv/bin/activate
-        docs_app migrate
+        locallibrary_app migrate
       args:
         chdir: /home/kevin/LibAppServ/
 
