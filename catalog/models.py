@@ -51,13 +51,6 @@ class Book(models.Model):
     language = models.ForeignKey('Language',
                                  on_delete=models.SET_NULL, null=True)
 
-    def display_genre(self):
-        """Creates a string for the Genre.
-           This is required to display genre in Admin."""
-        return ', '.join([genre.name for genre in self.genre.all()[:3]])
-
-    display_genre.short_description = 'Genre'
-
     def get_absolute_url(self):
         """Returns the url to access a particular book instance."""
         return reverse('book-detail', args=[str(self.id)])
@@ -76,15 +69,6 @@ class BookInstance(models.Model):
     due_back = models.DateField(null=True, blank=True)
     borrower = models.ForeignKey(User, on_delete=models.SET_NULL,
                                  null=True, blank=True)
-
-    # this is built in function that turns the is_overdue
-    # method into a getter for a read only attribute with
-    # the same name, you can now use @is_overdue.setter
-    @property
-    def is_overdue(self):
-        if self.due_back and date.today() > self.due_back:
-            return True
-        return False
 
     LOAN_STATUS = (
         ('d', 'Maintenance'),
