@@ -17,14 +17,8 @@ urlpatterns = [
 urlpatterns += [
     path('mybooks/', views.LoanedBooksByUserListView.as_view(),
          name='my_borrowed'),
-    path('borrowed/', views.LoanedBooksAllListView.as_view(),
-         name='all_borrowed'),
 ]
 
-# urlpatterns += [
-#     path('book/<uuid:pk>/renew/', views.renew_book_librarian,
-#          name='renew-book-librarian'),
-# ]
 
 urlpatterns += [
     path('api/v1/books/', views.BookViewSet.as_view({
