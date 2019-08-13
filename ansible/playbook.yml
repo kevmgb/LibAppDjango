@@ -98,17 +98,7 @@
 
     - name: Install python-certbot
       apt: name=python-certbot-nginx state=present
-
-    - name: Stop nginx to open port 80
-      service:
-        name: nginx
-        state: stopped
     
-    - name: Enable https
-      shell:
-        certbot --nginx --noninteractive --agree-tos --email kithinjimkevin@gmail.com -d server.kevo.online    
-      become: yes
-        
     - name: Allow UFW
       ufw:
         state: enabled
@@ -123,9 +113,10 @@
         rule: allow
         name: Nginx Full
 
-    - name: Free port 80
-      shell: 
-        fuser -k 80/tcp
+    - name: Enable https
+      shell:
+        "certbot --nginx --noninteractive --agree-tos --email kithinjimkevin@gmail.com -d server.kevo.online"    
+      become: yes
 
     - name: Restart nginx to make changes
       service:
